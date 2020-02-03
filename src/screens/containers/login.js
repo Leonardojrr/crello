@@ -1,23 +1,34 @@
 import React from 'react';
 import {
   View,
-  Image,
   StyleSheet,
   Text,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from 'react-native';
 
+import LoginForm from "../components/loginForm"
+
 const Login = () => {
+
+
+
   return (
     <View style={styles.body}>
      <SafeAreaView style={styles.body}>
-        <View style={styles.form_container}>
-          <View style={styles.logo}>
-            <Image source={require("../../../assets/svg/logo.png")}/>
-            <Text style={styles.logo_font}>Crello</Text>
-          </View>
-          
+
+        <View style={styles.logo_container}>
+          <Text style={styles.logo_font}>Crello</Text>
         </View>
+
+        <View style={styles.login_container}>
+          <LoginForm/>
+        </View>
+
+       <View style={styles.regist_button} onTouchStart={()=>{}}>
+         <Text style={styles.regist_text}>Create an account</Text>
+       </View>
+
      </SafeAreaView>
     </View>
   );
@@ -27,31 +38,37 @@ const styles = StyleSheet.create({
     body:{
       width: "100%",
       height: "100%",
-      backgroundColor:"#e3e3e3",
-      display:"flex",
-      justifyContent:"center",
-      alignItems:"center"
-    },
-    form_container:{
-      width:"65%",
-      height:"75%",
       backgroundColor:"white",
-      borderRadius: 15,
       display:"flex",
       alignItems:"center",
+      justifyContent:"space-between"
     },
-    logo:{
+    logo_container:{
       width: "100%",
       height:"30%",
       display:"flex",
-      alignItems:"center"
+      alignItems:"center",
+      justifyContent:"space-evenly"
     },
     logo_font:{
       fontFamily:"Ginchiest",
       color:"#ff8300",
-      fontSize:30
-    }
-
+      fontSize:100
+    },
+    regist_button:{
+     borderColor:"#d3d3d3",
+     borderWidth:2,
+     width:"100%",
+     height:50,
+     display:"flex",
+     justifyContent:"center",
+     alignItems:"center"
+    },
+    regist_text:{
+      color:"#ff8300",
+      fontSize:20,
+      fontFamily:"Nunito-Bold"
+    },
 })
 
 export default Login;
